@@ -131,6 +131,8 @@ class Calculator {
     }
 }
 
+const audio = document.getElementById('sound');
+
 const numberButtons = document.querySelectorAll('[data-number]');
 const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector('[data-equals]');
@@ -147,24 +149,29 @@ const calculator = new Calculator(previousOperandTextElement, currentOperandText
 numberButtons.forEach(button => button.addEventListener('click', () => {
     calculator.appendNumber(button.innerText);
     calculator.updateDisplay();
+    audio.play();
 }))
 
 operationButtons.forEach(button => button.addEventListener('click', () => {
     calculator.chooseOperation(button.innerText);
     calculator.updateDisplay();
+    audio.play();
 }))
 
 equalsButton.addEventListener('click', () => {
     calculator.compute();
     calculator.updateDisplay();
+    audio.play();
 })
 
 clearButton.addEventListener('click', () => {
     calculator.clear();
     calculator.updateDisplay();
+    audio.play();
 })
 
 deleteButton.addEventListener('click', () => {
     calculator.delete();
     calculator.updateDisplay();
+    audio.play();
 })
